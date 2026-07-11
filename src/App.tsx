@@ -20,7 +20,8 @@ import {
   Sparkles,
   RefreshCw,
   Clock,
-  ExternalLink
+  ExternalLink,
+  Share2
 } from "lucide-react";
 import VirtualTour from "./components/VirtualTour";
 import SpeedTest from "./components/SpeedTest";
@@ -28,10 +29,11 @@ import CommunityForum from "./components/CommunityForum";
 import MessengerChat from "./components/MessengerChat";
 import BookingSystem from "./components/BookingSystem";
 import ConsoleViewport from "./components/ConsoleViewport";
+import MediaKit from "./components/MediaKit";
 import { ConsoleViewType } from "./types";
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<"home" | "speedtest" | "community" | "messenger" | "booking" | "console">("home");
+  const [activeTab, setActiveTab] = useState<"home" | "speedtest" | "community" | "messenger" | "booking" | "console" | "mediakit">("home");
   const [currentUser, setCurrentUser] = useState("GuestGamer_" + Math.floor(100 + Math.random() * 900));
   const [isEditingUser, setIsEditingUser] = useState(false);
   const [userInputName, setUserInputName] = useState(currentUser);
@@ -134,6 +136,8 @@ export default function App() {
             setLegacyFonts={setLegacyFonts}
           />
         );
+      case "mediakit":
+        return <MediaKit lowGraphics={lowGraphics} />;
       default:
         return <VirtualTour lowGraphics={lowGraphics} />;
     }
@@ -431,6 +435,18 @@ export default function App() {
             >
               <Gamepad className="w-4 h-4" />
               <span>Console Emulator Sandbox</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab("mediakit")}
+              className={`px-4.5 py-2 rounded-xl text-xs font-display font-extrabold transition-all shrink-0 cursor-pointer flex items-center gap-1.5 ${
+                activeTab === "mediakit"
+                  ? "bg-gradient-to-r from-cyan-500/20 to-cyan-500/10 border border-cyan-500/50 text-cyan-400"
+                  : "bg-slate-900/30 border border-transparent text-slate-450 hover:text-slate-300"
+              }`}
+            >
+              <Share2 className="w-4 h-4" />
+              <span>Media Kit</span>
             </button>
 
             <a
