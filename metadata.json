@@ -1,0 +1,6 @@
+{
+  "name": "VR PASIG Zero Zone Mark",
+  "description": "Virtual Reality hub in Kapitolyo, Pasig offering immersive VR tours, 1 Gbps Wi-Fi, online booking with GCash, real-time community, live customer chat, and console browser compatibility.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
